@@ -47,6 +47,7 @@
 .listItem:hover {
   background-color: #262623c9;
   color: beige;
+  transition: 1s;
 }
 
 .listItem img {

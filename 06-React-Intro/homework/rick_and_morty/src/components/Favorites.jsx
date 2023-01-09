@@ -1,4 +1,6 @@
-import Card from './Card';
+import React from "react";
+import { useSelector } from "react-redux";
+import Card from "./Card";
 import styled from 'styled-components';
 
 
@@ -9,11 +11,20 @@ const Contenedor = styled.div`
    
 `;
 
-export default function Cards(props) {
-   const { characters } = props; //characters es un array de personajes
-   return (
-      <Contenedor>
-      <div className={styled.card}>
+
+
+export default function Favorites(props){
+const myFavorite = useSelector((state)=>state.myFavorite)
+const characters = props.characters.filter((personaje)=>{
+    return myFavorite.includes(personaje.id)
+})
+  
+
+
+return(
+        <Contenedor>
+
+            <div className={styled.card}>
          {characters.map(({name,species,gender,image,id},onClose)=>{
             return (
              <Card
@@ -29,6 +40,5 @@ export default function Cards(props) {
          })} 
       </div>
       </Contenedor>
-   )
+    )
 }
-

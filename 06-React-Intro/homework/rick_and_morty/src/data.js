@@ -26,4 +26,4 @@ export const Rick = {
   image: 'https://rickandmortyapi.com/api/character/avatar/1.jpeg'
 }
 
-export default characters
+export default characters;
